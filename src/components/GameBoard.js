@@ -256,7 +256,6 @@ const GameBoard = ({ onStateChange, gameConfig }) => {
   
   // Local state for UI
   const [selectedAction, setSelectedAction] = useState(null);
-  const [hoveredAction, setHoveredAction] = useState(null);
   
   // Get current active player
   const activePlayer = players.find(player => player.id === activePlayerId);
@@ -315,7 +314,7 @@ const GameBoard = ({ onStateChange, gameConfig }) => {
     
     // Add log entry
     const actionName = getActionName(selectedAction);
-    dispatch(addGameLog(`玩家 ${activePlayer.id} 使用了 ${actionName}，移動了 ${moveDistance.toFixed(1)} 格，耐力變化 ${energyChange > 0 ? '+' : ''}${energyChange}%`));
+    dispatch(addGameLog(`玩家 ${activePlayer.id} 使用了 ${actionName}，移動了 ${moveDistance.toFixed(1)} 格，耐力變化 ${energyChange > 0 ? '+' : ''}${energyChange.toFixed(0)}%`));
     
     // Check if player has finished the race
     if (newPosition >= track.length) {
@@ -521,7 +520,16 @@ const GameBoard = ({ onStateChange, gameConfig }) => {
         
         <InfoItem>
           <InfoLabel>賽道類型</InfoLabel>
-          <InfoValue>{gameConfig.trackType}</InfoValue>
+          <InfoValue>
+            {trackType => {
+              switch(gameConfig.trackType) {
+                case 'standard': return '標準賽道';
+                case 'mountain': return '山地賽道'; 
+                case 'city': return '城市賽道';
+                default: return '標準賽道';
+              }
+            }}
+          </InfoValue>
         </InfoItem>
         
         <InfoItem>
