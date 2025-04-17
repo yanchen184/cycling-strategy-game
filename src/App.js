@@ -11,6 +11,9 @@ import GameOver from './components/GameOver';
 // Import game states
 import { GAME_STATES } from './utils/constants';
 
+// Current version
+const VERSION = 'v0.2.0';
+
 function App() {
   // Track current game state
   const [gameState, setGameState] = useState(GAME_STATES.MAIN_MENU);
@@ -63,7 +66,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>風馳電掣</h1>
-        <div className="version-display">v0.1.0</div>
+        <div className="version-display">{VERSION}</div>
       </header>
       <main className="game-container">
         {renderGameState()}
