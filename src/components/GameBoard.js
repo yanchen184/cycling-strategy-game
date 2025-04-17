@@ -221,6 +221,20 @@ const FinishButton = styled.button`
 `;
 
 /**
+ * Get track type display name
+ * @param {string} trackType - Track type ID
+ * @returns {string} - Display name
+ */
+const getTrackDisplayName = (trackType) => {
+  switch(trackType) {
+    case 'standard': return '標準賽道';
+    case 'mountain': return '山地賽道'; 
+    case 'city': return '城市賽道';
+    default: return '標準賽道';
+  }
+};
+
+/**
  * Calculate position percentage for visual representation
  * @param {number} position - Player's current position
  * @param {number} trackLength - Total length of the track
@@ -520,16 +534,7 @@ const GameBoard = ({ onStateChange, gameConfig }) => {
         
         <InfoItem>
           <InfoLabel>賽道類型</InfoLabel>
-          <InfoValue>
-            {trackType => {
-              switch(gameConfig.trackType) {
-                case 'standard': return '標準賽道';
-                case 'mountain': return '山地賽道'; 
-                case 'city': return '城市賽道';
-                default: return '標準賽道';
-              }
-            }}
-          </InfoValue>
+          <InfoValue>{getTrackDisplayName(gameConfig.trackType)}</InfoValue>
         </InfoItem>
         
         <InfoItem>
