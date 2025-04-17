@@ -1,6 +1,6 @@
 # 風馳電掣 Cycling Strategy Game
 
-![版本](https://img.shields.io/badge/版本-0.1.0-blue)
+![版本](https://img.shields.io/badge/版本-0.2.0-blue)
 
 ## 專案介紹
 
@@ -36,13 +36,19 @@ npm install
 ### 運行開發服務器
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ### 構建生產版本
 
 ```bash
 npm run build
+```
+
+### 部署至 GitHub Pages
+
+```bash
+npm run deploy
 ```
 
 ## 遊戲玩法
@@ -80,8 +86,23 @@ cycling-strategy-game/
 │   ├── App.js              # 主應用組件
 │   └── index.js            # 入口文件
 ├── public/                 # 靜態資源
+├── .github/workflows/      # GitHub Actions 工作流
 └── package.json            # 項目配置
 ```
+
+## 版本歷史
+
+### v0.2.0
+- 實現基本遊戲邏輯
+- 添加遊戲板組件
+- 實現賽道生成
+- 添加玩家動作系統
+- 設置 GitHub Pages 部署
+
+### v0.1.0
+- 初始專案設置
+- 主選單和角色選擇介面
+- 基本 Redux 架構
 
 ## 未來計劃
 
@@ -90,6 +111,7 @@ cycling-strategy-game/
 - 添加成就系統
 - 增加更多賽道和賽道特效
 - 實現更複雜的策略選擇
+- 添加遊戲音效
 
 ## 貢獻指南
 
